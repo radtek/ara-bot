@@ -1,0 +1,14 @@
+#Porfile的配置
+spring:
+  profiles:
+    active: pro
+#actuator的配置
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "info, health, loggers, metrics"
+  endpoint:
+    health:
+      show-details: always
+

@@ -1,0 +1,54 @@
+#Porfile的配置
+spring:
+  profiles:
+    active: pro
+#actuator的配置
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "info, health, loggers, metrics"
+  endpoint:
+    health:
+      show-details: always
+
+#自定义属性
+yibot:
+  suiTitle: Yibot 数据服务平台
+  description: 为公司Yibiot产品提供数据服务
+  version: 1.0.0
+  basePackage: com.zhuiyi.api
+  allowAppKeys: cee83992d2d9426ead7088e0362a8aab
+  oldServiceUrl:
+  rescode:
+    successCode: 0
+    successMsg: OK
+    reqUnauthorizedCode: 401
+    reqUnauthorizedMsg: Request Unauthorized
+    reqForbiddenCode: 403
+    reqForbiddenMsg: Request Forbidden
+    reqFormatErrorCode: 701
+    reqFormatErrorMsg: Request packet format error
+    reqDataCheckFailCode: 702
+    reqDataCheckFailMsg: Request data checksum failure
+    reqDataMissCode: 703
+    reqDataMissMsg: Request data missing
+    tokenCheckFailCode: 704
+    tokenCheckFailMsg: Token checksum failure
+    tokenExpiredCode: 705
+    tokenExpiredMsg: Token is expired
+    reqContentNotExistCode: 706
+    reqContentNotExistMsg: Content requested does not exist
+    tokenDataMissCode: 707
+    tokenDataMissMsg: Token data is missing
+    pswNotCorrectCode: 708
+    pswNotCorrectMsg: Account/password is not correct
+    pushDataExceedsLimitCode: 720
+    pushDataExceedsLimitMsg: Push data exceeds limit
+    operateFailErrorCode: 997
+    operateFailErrorMsg: The operate is failure
+    serviceDisabledErrorCode: 998
+    serviceDisabledErrorMsg: The service is disabled
+    internalServerErrorCode: 999
+    internalServerErrorMsg: Internal server error
+

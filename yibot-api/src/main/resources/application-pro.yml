@@ -1,0 +1,1869 @@
+#WEB服务配置
+server:
+   #服务端口号
+   port: 8101
+   servlet:
+     context-path: /yibot-api
+     session:
+       timeout: 30m
+   undertow:
+     accesslog:
+       dir: /data/log/access
+       enabled: true
+     io-threads: 12
+     worker-threads: 192
+     buffer-size: 1024
+     direct-buffers: true
+#数据源配置
+spring:
+  application:
+    name: yibot-api-node
+  jpa:
+    hibernate:
+      ddl-auto: none
+      naming:
+        physical-strategy:  org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    show-sql: false
+    generate-ddl: false
+    database: mysql
+    open-in-view: false
+  #缓存配置
+  redis:
+    host: 10.4.2.7
+    port: 6379
+    password: crs-6v83l9hm:9IdSPomJxRLRTh3S
+#分库分表配置
+sharding:
+  jdbc:
+    datasource:
+      names: ds-master-default,ds-slave-0-default,ds-master-10051004,ds-slave-0-10051004,ds-master-10051005,ds-slave-0-10051005,ds-master-10051006,ds-slave-0-10051006,ds-master-10051007,ds-slave-0-10051007,ds-master-10051008,ds-slave-0-10051008,ds-master-10051009,ds-slave-0-10051009,ds-master-10051010,ds-slave-0-10051010,ds-master-10051011,ds-slave-0-10051011,ds-master-10051012,ds-slave-0-10051012,ds-master-10051023,ds-slave-0-10051023,ds-master-10051024,ds-slave-0-10051024,ds-master-10051025,ds-slave-0-10051025,ds-master-10051026,ds-slave-0-10051026,ds-master-10051027,ds-slave-0-10051027,ds-master-10051028,ds-slave-0-10051028,ds-master-10151001,ds-slave-0-10151001,ds-master-10161001,ds-slave-0-10161001,ds-master-10171001,ds-slave-0-10171001,ds-master-10251001,ds-slave-0-10251001,ds-master-10451001,ds-slave-0-10451001,ds-master-10471001,ds-slave-0-10471001,ds-master-10501001,ds-slave-0-10501001,ds-master-10501002,ds-slave-0-10501002,ds-master-10621005,ds-slave-0-10621005,ds-master-20021001,ds-slave-0-20021001,ds-master-20051001,ds-slave-0-20051001,ds-master-20081001,ds-slave-0-20081001,ds-master-20091001,ds-slave-0-20091001,ds-master-20111002,ds-slave-0-20111002,ds-master-20121003,ds-slave-0-20121003,ds-master-20131001,ds-slave-0-20131001,ds-master-20151002,ds-slave-0-20151002,ds-master-20231001,ds-slave-0-20231001,ds-master-20251001,ds-slave-0-20251001,ds-master-20281001,ds-slave-0-20281001,ds-master-20321001,ds-slave-0-20321001,ds-master-20341002,ds-slave-0-20341002,ds-master-20391001,ds-slave-0-20391001,ds-master-20621001,ds-slave-0-20621001,ds-master-20641001,ds-slave-0-20641001,ds-master-20651001,ds-slave-0-20651001,ds-master-20661001,ds-slave-0-20661001,ds-master-20721002,ds-slave-0-20721002,ds-master-20771001,ds-slave-0-20771001,ds-master-20771002,ds-slave-0-20771002,ds-master-20791001,ds-slave-0-20791001,ds-master-20871002,ds-slave-0-20871002,ds-master-20941002,ds-slave-0-20941002,ds-master-21021001,ds-slave-0-21021001,ds-master-21141001,ds-slave-0-21141001,ds-master-21241001,ds-slave-0-21241001,ds-master-21361001,ds-slave-0-21361001,ds-master-21381001,ds-slave-0-21381001,ds-master-21421007,ds-slave-0-21421007,ds-master-21451001,ds-slave-0-21451001,ds-master-21581001,ds-slave-0-21581001,ds-master-21841002,ds-slave-0-21841002
+      ds-master-default:
+        #系统默认独立数据源
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.4.1.171:3306/yibot?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: bot_data
+        password: Gpi1DY63rlPInmCC
+        minimum-idle: 1
+        maximum-pool-size: 30
+        auto-commit: true
+        idle-timeout: 60000
+        max-lifetime: 1800000
+        connection-test-query: SELECT 1
+        connection-timeout: 60000
+      ds-slave-0-default:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.4.1.35:3306/yibot?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: bot_data
+        password: Gpi1DY63rlPInmCC
+        minimum-idle: 1
+        maximum-pool-size: 30
+        auto-commit: true
+        idle-timeout: 60000
+        max-lifetime: 1800000
+        connection-test-query: SELECT 1
+        connection-timeout: 60000
+      ds-master-10051004:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.4.1.171:3306/yibot_10051004?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: bot_data
+        password: Gpi1DY63rlPInmCC
+        minimum-idle: 1
+        maximum-pool-size: 30
+        auto-commit: true
+        idle-timeout: 60000
+        max-lifetime: 1800000
+        connection-test-query: SELECT 1
+        connection-timeout: 60000
+      ds-slave-0-10051004:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.4.1.35:3306/yibot_10051004?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: bot_data
+        password: Gpi1DY63rlPInmCC
+        minimum-idle: 1
+        maximum-pool-size: 30
+        auto-commit: true
+        idle-timeout: 60000
+        max-lifetime: 1800000
+        connection-test-query: SELECT 1
+        connection-timeout: 60000
+      ds-master-10051005:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.4.1.171:3306/yibot_10051005?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: bot_data
+        password: Gpi1DY63rlPInmCC
+        minimum-idle: 1
+        maximum-pool-size: 30
+        auto-commit: true
+        idle-timeout: 60000
+        max-lifetime: 1800000
+        connection-test-query: SELECT 1
+        connection-timeout: 60000
+      ds-slave-0-10051005:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.4.1.35:3306/yibot_10051005?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: bot_data
+        password: Gpi1DY63rlPInmCC
+        minimum-idle: 1
+        maximum-pool-size: 30
+        auto-commit: true
+        idle-timeout: 60000
+        max-lifetime: 1800000
+        connection-test-query: SELECT 1
+        connection-timeout: 60000
+      ds-master-10051006:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.4.1.171:3306/yibot_10051006?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: bot_data
+        password: Gpi1DY63rlPInmCC
+        minimum-idle: 1
+        maximum-pool-size: 30
+        auto-commit: true
+        idle-timeout: 60000
+        max-lifetime: 1800000
+        connection-test-query: SELECT 1
+        connection-timeout: 60000
+      ds-slave-0-10051006:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.4.1.35:3306/yibot_10051006?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: bot_data
+        password: Gpi1DY63rlPInmCC
+        minimum-idle: 1
+        maximum-pool-size: 30
+        auto-commit: true
+        idle-timeout: 60000
+        max-lifetime: 1800000
+        connection-test-query: SELECT 1
+        connection-timeout: 60000
+      ds-master-10051007:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.4.1.171:3306/yibot_10051007?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: bot_data
+        password: Gpi1DY63rlPInmCC
+        minimum-idle: 1
+        maximum-pool-size: 30
+        auto-commit: true
+        idle-timeout: 60000
+        max-lifetime: 1800000
+        connection-test-query: SELECT 1
+        connection-timeout: 60000
+      ds-slave-0-10051007:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.4.1.35:3306/yibot_10051007?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: bot_data
+        password: Gpi1DY63rlPInmCC
+        minimum-idle: 1
+        maximum-pool-size: 30
+        auto-commit: true
+        idle-timeout: 60000
+        max-lifetime: 1800000
+        connection-test-query: SELECT 1
+        connection-timeout: 60000
+      ds-master-10051008:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.4.1.171:3306/yibot_10051008?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: bot_data
+        password: Gpi1DY63rlPInmCC
+        minimum-idle: 1
+        maximum-pool-size: 30
+        auto-commit: true
+        idle-timeout: 60000
+        max-lifetime: 1800000
+        connection-test-query: SELECT 1
+        connection-timeout: 60000
+      ds-slave-0-10051008:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.4.1.35:3306/yibot_10051008?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: bot_data
+        password: Gpi1DY63rlPInmCC
+        minimum-idle: 1
+        maximum-pool-size: 30
+        auto-commit: true
+        idle-timeout: 60000
+        max-lifetime: 1800000
+        connection-test-query: SELECT 1
+        connection-timeout: 60000
+      ds-master-10051009:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.4.1.171:3306/yibot_10051009?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: bot_data
+        password: Gpi1DY63rlPInmCC
+        minimum-idle: 1
+        maximum-pool-size: 30
+        auto-commit: true
+        idle-timeout: 60000
+        max-lifetime: 1800000
+        connection-test-query: SELECT 1
+        connection-timeout: 60000
+      ds-slave-0-10051009:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.4.1.35:3306/yibot_10051009?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: bot_data
+        password: Gpi1DY63rlPInmCC
+        minimum-idle: 1
+        maximum-pool-size: 30
+        auto-commit: true
+        idle-timeout: 60000
+        max-lifetime: 1800000
+        connection-test-query: SELECT 1
+        connection-timeout: 60000
+      ds-master-10051010:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.4.1.171:3306/yibot_10051010?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: bot_data
+        password: Gpi1DY63rlPInmCC
+        minimum-idle: 1
+        maximum-pool-size: 30
+        auto-commit: true
+        idle-timeout: 60000
+        max-lifetime: 1800000
+        connection-test-query: SELECT 1
+        connection-timeout: 60000
+      ds-slave-0-10051010:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.4.1.35:3306/yibot_10051010?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: bot_data
+        password: Gpi1DY63rlPInmCC
+        minimum-idle: 1
+        maximum-pool-size: 30
+        auto-commit: true
+        idle-timeout: 60000
+        max-lifetime: 1800000
+        connection-test-query: SELECT 1
+        connection-timeout: 60000
+      ds-master-10051011:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.4.1.171:3306/yibot_10051011?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: bot_data
+        password: Gpi1DY63rlPInmCC
+        minimum-idle: 1
+        maximum-pool-size: 30
+        auto-commit: true
+        idle-timeout: 60000
+        max-lifetime: 1800000
+        connection-test-query: SELECT 1
+        connection-timeout: 60000
+      ds-slave-0-10051011:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.4.1.35:3306/yibot_10051011?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: bot_data
+        password: Gpi1DY63rlPInmCC
+        minimum-idle: 1
+        maximum-pool-size: 30
+        auto-commit: true
+        idle-timeout: 60000
+        max-lifetime: 1800000
+        connection-test-query: SELECT 1
+        connection-timeout: 60000
+      ds-master-10051012:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.4.1.171:3306/yibot_10051012?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: bot_data
+        password: Gpi1DY63rlPInmCC
+        minimum-idle: 1
+        maximum-pool-size: 30
+        auto-commit: true
+        idle-timeout: 60000
+        max-lifetime: 1800000
+        connection-test-query: SELECT 1
+        connection-timeout: 60000
+      ds-slave-0-10051012:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.4.1.35:3306/yibot_10051012?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: bot_data
+        password: Gpi1DY63rlPInmCC
+        minimum-idle: 1
+        maximum-pool-size: 30
+        auto-commit: true
+        idle-timeout: 60000
+        max-lifetime: 1800000
+        connection-test-query: SELECT 1
+        connection-timeout: 60000
+      ds-master-10051023:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.4.1.171:3306/yibot_10051023?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: bot_data
+        password: Gpi1DY63rlPInmCC
+        minimum-idle: 1
+        maximum-pool-size: 30
+        auto-commit: true
+        idle-timeout: 60000
+        max-lifetime: 1800000
+        connection-test-query: SELECT 1
+        connection-timeout: 60000
+      ds-slave-0-10051023:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.4.1.35:3306/yibot_10051023?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: bot_data
+        password: Gpi1DY63rlPInmCC
+        minimum-idle: 1
+        maximum-pool-size: 30
+        auto-commit: true
+        idle-timeout: 60000
+        max-lifetime: 1800000
+        connection-test-query: SELECT 1
+        connection-timeout: 60000
+      ds-master-10051024:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.4.1.171:3306/yibot_10051024?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: bot_data
+        password: Gpi1DY63rlPInmCC
+        minimum-idle: 1
+        maximum-pool-size: 30
+        auto-commit: true
+        idle-timeout: 60000
+        max-lifetime: 1800000
+        connection-test-query: SELECT 1
+        connection-timeout: 60000
+      ds-slave-0-10051024:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.4.1.35:3306/yibot_10051024?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: bot_data
+        password: Gpi1DY63rlPInmCC
+        minimum-idle: 1
+        maximum-pool-size: 30
+        auto-commit: true
+        idle-timeout: 60000
+        max-lifetime: 1800000
+        connection-test-query: SELECT 1
+        connection-timeout: 60000
+      ds-master-10051025:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.4.1.171:3306/yibot_10051025?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: bot_data
+        password: Gpi1DY63rlPInmCC
+        minimum-idle: 1
+        maximum-pool-size: 30
+        auto-commit: true
+        idle-timeout: 60000
+        max-lifetime: 1800000
+        connection-test-query: SELECT 1
+        connection-timeout: 60000
+      ds-slave-0-10051025:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.4.1.35:3306/yibot_10051025?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: bot_data
+        password: Gpi1DY63rlPInmCC
+        minimum-idle: 1
+        maximum-pool-size: 30
+        auto-commit: true
+        idle-timeout: 60000
+        max-lifetime: 1800000
+        connection-test-query: SELECT 1
+        connection-timeout: 60000
+      ds-master-10051026:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.4.1.171:3306/yibot_10051026?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: bot_data
+        password: Gpi1DY63rlPInmCC
+        minimum-idle: 1
+        maximum-pool-size: 30
+        auto-commit: true
+        idle-timeout: 60000
+        max-lifetime: 1800000
+        connection-test-query: SELECT 1
+        connection-timeout: 60000
+      ds-slave-0-10051026:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.4.1.35:3306/yibot_10051026?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: bot_data
+        password: Gpi1DY63rlPInmCC
+        minimum-idle: 1
+        maximum-pool-size: 30
+        auto-commit: true
+        idle-timeout: 60000
+        max-lifetime: 1800000
+        connection-test-query: SELECT 1
+        connection-timeout: 60000
+      ds-master-10051027:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.4.1.171:3306/yibot_10051027?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: bot_data
+        password: Gpi1DY63rlPInmCC
+        minimum-idle: 1
+        maximum-pool-size: 30
+        auto-commit: true
+        idle-timeout: 60000
+        max-lifetime: 1800000
+        connection-test-query: SELECT 1
+        connection-timeout: 60000
+      ds-slave-0-10051027:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.4.1.35:3306/yibot_10051027?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: bot_data
+        password: Gpi1DY63rlPInmCC
+        minimum-idle: 1
+        maximum-pool-size: 30
+        auto-commit: true
+        idle-timeout: 60000
+        max-lifetime: 1800000
+        connection-test-query: SELECT 1
+        connection-timeout: 60000
+      ds-master-10051028:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.4.1.171:3306/yibot_10051028?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: bot_data
+        password: Gpi1DY63rlPInmCC
+        minimum-idle: 1
+        maximum-pool-size: 30
+        auto-commit: true
+        idle-timeout: 60000
+        max-lifetime: 1800000
+        connection-test-query: SELECT 1
+        connection-timeout: 60000
+      ds-slave-0-10051028:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.4.1.35:3306/yibot_10051028?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: bot_data
+        password: Gpi1DY63rlPInmCC
+        minimum-idle: 1
+        maximum-pool-size: 30
+        auto-commit: true
+        idle-timeout: 60000
+        max-lifetime: 1800000
+        connection-test-query: SELECT 1
+        connection-timeout: 60000
+      ds-master-10151001:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.4.1.171:3306/yibot_10151001?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: bot_data
+        password: Gpi1DY63rlPInmCC
+        minimum-idle: 1
+        maximum-pool-size: 30
+        auto-commit: true
+        idle-timeout: 60000
+        max-lifetime: 1800000
+        connection-test-query: SELECT 1
+        connection-timeout: 60000
+      ds-slave-0-10151001:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.4.1.35:3306/yibot_10151001?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: bot_data
+        password: Gpi1DY63rlPInmCC
+        minimum-idle: 1
+        maximum-pool-size: 30
+        auto-commit: true
+        idle-timeout: 60000
+        max-lifetime: 1800000
+        connection-test-query: SELECT 1
+        connection-timeout: 60000
+      ds-master-10161001:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.4.1.171:3306/yibot_10161001?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: bot_data
+        password: Gpi1DY63rlPInmCC
+        minimum-idle: 1
+        maximum-pool-size: 30
+        auto-commit: true
+        idle-timeout: 60000
+        max-lifetime: 1800000
+        connection-test-query: SELECT 1
+        connection-timeout: 60000
+      ds-slave-0-10161001:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.4.1.35:3306/yibot_10161001?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: bot_data
+        password: Gpi1DY63rlPInmCC
+        minimum-idle: 1
+        maximum-pool-size: 30
+        auto-commit: true
+        idle-timeout: 60000
+        max-lifetime: 1800000
+        connection-test-query: SELECT 1
+        connection-timeout: 60000
+      ds-master-10171001:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.4.1.171:3306/yibot_10171001?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: bot_data
+        password: Gpi1DY63rlPInmCC
+        minimum-idle: 1
+        maximum-pool-size: 30
+        auto-commit: true
+        idle-timeout: 60000
+        max-lifetime: 1800000
+        connection-test-query: SELECT 1
+        connection-timeout: 60000
+      ds-slave-0-10171001:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.4.1.35:3306/yibot_10171001?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: bot_data
+        password: Gpi1DY63rlPInmCC
+        minimum-idle: 1
+        maximum-pool-size: 30
+        auto-commit: true
+        idle-timeout: 60000
+        max-lifetime: 1800000
+        connection-test-query: SELECT 1
+        connection-timeout: 60000
+      ds-master-10251001:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.4.1.171:3306/yibot_10251001?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: bot_data
+        password: Gpi1DY63rlPInmCC
+        minimum-idle: 1
+        maximum-pool-size: 30
+        auto-commit: true
+        idle-timeout: 60000
+        max-lifetime: 1800000
+        connection-test-query: SELECT 1
+        connection-timeout: 60000
+      ds-slave-0-10251001:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.4.1.35:3306/yibot_10251001?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: bot_data
+        password: Gpi1DY63rlPInmCC
+        minimum-idle: 1
+        maximum-pool-size: 30
+        auto-commit: true
+        idle-timeout: 60000
+        max-lifetime: 1800000
+        connection-test-query: SELECT 1
+        connection-timeout: 60000
+      ds-master-10451001:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.4.1.171:3306/yibot_10451001?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: bot_data
+        password: Gpi1DY63rlPInmCC
+        minimum-idle: 1
+        maximum-pool-size: 30
+        auto-commit: true
+        idle-timeout: 60000
+        max-lifetime: 1800000
+        connection-test-query: SELECT 1
+        connection-timeout: 60000
+      ds-slave-0-10451001:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.4.1.35:3306/yibot_10451001?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: bot_data
+        password: Gpi1DY63rlPInmCC
+        minimum-idle: 1
+        maximum-pool-size: 30
+        auto-commit: true
+        idle-timeout: 60000
+        max-lifetime: 1800000
+        connection-test-query: SELECT 1
+        connection-timeout: 60000
+      ds-master-10471001:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.4.1.171:3306/yibot_10471001?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: bot_data
+        password: Gpi1DY63rlPInmCC
+        minimum-idle: 1
+        maximum-pool-size: 30
+        auto-commit: true
+        idle-timeout: 60000
+        max-lifetime: 1800000
+        connection-test-query: SELECT 1
+        connection-timeout: 60000
+      ds-slave-0-10471001:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.4.1.35:3306/yibot_10471001?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: bot_data
+        password: Gpi1DY63rlPInmCC
+        minimum-idle: 1
+        maximum-pool-size: 30
+        auto-commit: true
+        idle-timeout: 60000
+        max-lifetime: 1800000
+        connection-test-query: SELECT 1
+        connection-timeout: 60000
+      ds-master-10501001:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.4.1.171:3306/yibot_10501001?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: bot_data
+        password: Gpi1DY63rlPInmCC
+        minimum-idle: 1
+        maximum-pool-size: 30
+        auto-commit: true
+        idle-timeout: 60000
+        max-lifetime: 1800000
+        connection-test-query: SELECT 1
+        connection-timeout: 60000
+      ds-slave-0-10501001:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.4.1.35:3306/yibot_10501001?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: bot_data
+        password: Gpi1DY63rlPInmCC
+        minimum-idle: 1
+        maximum-pool-size: 30
+        auto-commit: true
+        idle-timeout: 60000
+        max-lifetime: 1800000
+        connection-test-query: SELECT 1
+        connection-timeout: 60000
+      ds-master-10501002:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.4.1.171:3306/yibot_10501002?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: bot_data
+        password: Gpi1DY63rlPInmCC
+        minimum-idle: 1
+        maximum-pool-size: 30
+        auto-commit: true
+        idle-timeout: 60000
+        max-lifetime: 1800000
+        connection-test-query: SELECT 1
+        connection-timeout: 60000
+      ds-slave-0-10501002:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.4.1.35:3306/yibot_10501002?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: bot_data
+        password: Gpi1DY63rlPInmCC
+        minimum-idle: 1
+        maximum-pool-size: 30
+        auto-commit: true
+        idle-timeout: 60000
+        max-lifetime: 1800000
+        connection-test-query: SELECT 1
+        connection-timeout: 60000
+      ds-master-10621005:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.4.1.171:3306/yibot_10621005?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: bot_data
+        password: Gpi1DY63rlPInmCC
+        minimum-idle: 1
+        maximum-pool-size: 30
+        auto-commit: true
+        idle-timeout: 60000
+        max-lifetime: 1800000
+        connection-test-query: SELECT 1
+        connection-timeout: 60000
+      ds-slave-0-10621005:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.4.1.35:3306/yibot_10621005?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: bot_data
+        password: Gpi1DY63rlPInmCC
+        minimum-idle: 1
+        maximum-pool-size: 30
+        auto-commit: true
+        idle-timeout: 60000
+        max-lifetime: 1800000
+        connection-test-query: SELECT 1
+        connection-timeout: 60000
+      ds-master-20021001:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.4.1.171:3306/yibot_20021001?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: bot_data
+        password: Gpi1DY63rlPInmCC
+        minimum-idle: 1
+        maximum-pool-size: 30
+        auto-commit: true
+        idle-timeout: 60000
+        max-lifetime: 1800000
+        connection-test-query: SELECT 1
+        connection-timeout: 60000
+      ds-slave-0-20021001:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.4.1.35:3306/yibot_20021001?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: bot_data
+        password: Gpi1DY63rlPInmCC
+        minimum-idle: 1
+        maximum-pool-size: 30
+        auto-commit: true
+        idle-timeout: 60000
+        max-lifetime: 1800000
+        connection-test-query: SELECT 1
+        connection-timeout: 60000
+      ds-master-20051001:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.4.1.171:3306/yibot_20051001?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: bot_data
+        password: Gpi1DY63rlPInmCC
+        minimum-idle: 1
+        maximum-pool-size: 30
+        auto-commit: true
+        idle-timeout: 60000
+        max-lifetime: 1800000
+        connection-test-query: SELECT 1
+        connection-timeout: 60000
+      ds-slave-0-20051001:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.4.1.35:3306/yibot_20051001?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: bot_data
+        password: Gpi1DY63rlPInmCC
+        minimum-idle: 1
+        maximum-pool-size: 30
+        auto-commit: true
+        idle-timeout: 60000
+        max-lifetime: 1800000
+        connection-test-query: SELECT 1
+        connection-timeout: 60000
+      ds-master-20081001:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.4.1.171:3306/yibot_20081001?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: bot_data
+        password: Gpi1DY63rlPInmCC
+        minimum-idle: 1
+        maximum-pool-size: 30
+        auto-commit: true
+        idle-timeout: 60000
+        max-lifetime: 1800000
+        connection-test-query: SELECT 1
+        connection-timeout: 60000
+      ds-slave-0-20081001:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.4.1.35:3306/yibot_20081001?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: bot_data
+        password: Gpi1DY63rlPInmCC
+        minimum-idle: 1
+        maximum-pool-size: 30
+        auto-commit: true
+        idle-timeout: 60000
+        max-lifetime: 1800000
+        connection-test-query: SELECT 1
+        connection-timeout: 60000
+      ds-master-20091001:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.4.1.171:3306/yibot_20091001?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: bot_data
+        password: Gpi1DY63rlPInmCC
+        minimum-idle: 1
+        maximum-pool-size: 30
+        auto-commit: true
+        idle-timeout: 60000
+        max-lifetime: 1800000
+        connection-test-query: SELECT 1
+        connection-timeout: 60000
+      ds-slave-0-20091001:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.4.1.35:3306/yibot_20091001?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: bot_data
+        password: Gpi1DY63rlPInmCC
+        minimum-idle: 1
+        maximum-pool-size: 30
+        auto-commit: true
+        idle-timeout: 60000
+        max-lifetime: 1800000
+        connection-test-query: SELECT 1
+        connection-timeout: 60000
+      ds-master-20111002:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.4.1.171:3306/yibot_20111002?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: bot_data
+        password: Gpi1DY63rlPInmCC
+        minimum-idle: 1
+        maximum-pool-size: 30
+        auto-commit: true
+        idle-timeout: 60000
+        max-lifetime: 1800000
+        connection-test-query: SELECT 1
+        connection-timeout: 60000
+      ds-slave-0-20111002:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.4.1.35:3306/yibot_20111002?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: bot_data
+        password: Gpi1DY63rlPInmCC
+        minimum-idle: 1
+        maximum-pool-size: 30
+        auto-commit: true
+        idle-timeout: 60000
+        max-lifetime: 1800000
+        connection-test-query: SELECT 1
+        connection-timeout: 60000
+      ds-master-20121003:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.4.1.171:3306/yibot_20121003?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: bot_data
+        password: Gpi1DY63rlPInmCC
+        minimum-idle: 1
+        maximum-pool-size: 30
+        auto-commit: true
+        idle-timeout: 60000
+        max-lifetime: 1800000
+        connection-test-query: SELECT 1
+        connection-timeout: 60000
+      ds-slave-0-20121003:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.4.1.35:3306/yibot_20121003?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: bot_data
+        password: Gpi1DY63rlPInmCC
+        minimum-idle: 1
+        maximum-pool-size: 30
+        auto-commit: true
+        idle-timeout: 60000
+        max-lifetime: 1800000
+        connection-test-query: SELECT 1
+        connection-timeout: 60000
+      ds-master-20131001:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.4.1.171:3306/yibot_20131001?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: bot_data
+        password: Gpi1DY63rlPInmCC
+        minimum-idle: 1
+        maximum-pool-size: 30
+        auto-commit: true
+        idle-timeout: 60000
+        max-lifetime: 1800000
+        connection-test-query: SELECT 1
+        connection-timeout: 60000
+      ds-slave-0-20131001:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.4.1.35:3306/yibot_20131001?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: bot_data
+        password: Gpi1DY63rlPInmCC
+        minimum-idle: 1
+        maximum-pool-size: 30
+        auto-commit: true
+        idle-timeout: 60000
+        max-lifetime: 1800000
+        connection-test-query: SELECT 1
+        connection-timeout: 60000
+      ds-master-20151002:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.4.1.171:3306/yibot_20151002?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: bot_data
+        password: Gpi1DY63rlPInmCC
+        minimum-idle: 1
+        maximum-pool-size: 30
+        auto-commit: true
+        idle-timeout: 60000
+        max-lifetime: 1800000
+        connection-test-query: SELECT 1
+        connection-timeout: 60000
+      ds-slave-0-20151002:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.4.1.35:3306/yibot_20151002?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: bot_data
+        password: Gpi1DY63rlPInmCC
+        minimum-idle: 1
+        maximum-pool-size: 30
+        auto-commit: true
+        idle-timeout: 60000
+        max-lifetime: 1800000
+        connection-test-query: SELECT 1
+        connection-timeout: 60000
+      ds-master-20231001:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.4.1.171:3306/yibot_20231001?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: bot_data
+        password: Gpi1DY63rlPInmCC
+        minimum-idle: 1
+        maximum-pool-size: 30
+        auto-commit: true
+        idle-timeout: 60000
+        max-lifetime: 1800000
+        connection-test-query: SELECT 1
+        connection-timeout: 60000
+      ds-slave-0-20231001:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.4.1.35:3306/yibot_20231001?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: bot_data
+        password: Gpi1DY63rlPInmCC
+        minimum-idle: 1
+        maximum-pool-size: 30
+        auto-commit: true
+        idle-timeout: 60000
+        max-lifetime: 1800000
+        connection-test-query: SELECT 1
+        connection-timeout: 60000
+      ds-master-20251001:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.4.1.171:3306/yibot_20251001?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: bot_data
+        password: Gpi1DY63rlPInmCC
+        minimum-idle: 1
+        maximum-pool-size: 30
+        auto-commit: true
+        idle-timeout: 60000
+        max-lifetime: 1800000
+        connection-test-query: SELECT 1
+        connection-timeout: 60000
+      ds-slave-0-20251001:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.4.1.35:3306/yibot_20251001?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: bot_data
+        password: Gpi1DY63rlPInmCC
+        minimum-idle: 1
+        maximum-pool-size: 30
+        auto-commit: true
+        idle-timeout: 60000
+        max-lifetime: 1800000
+        connection-test-query: SELECT 1
+        connection-timeout: 60000
+      ds-master-20281001:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.4.1.171:3306/yibot_20281001?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: bot_data
+        password: Gpi1DY63rlPInmCC
+        minimum-idle: 1
+        maximum-pool-size: 30
+        auto-commit: true
+        idle-timeout: 60000
+        max-lifetime: 1800000
+        connection-test-query: SELECT 1
+        connection-timeout: 60000
+      ds-slave-0-20281001:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.4.1.35:3306/yibot_20281001?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: bot_data
+        password: Gpi1DY63rlPInmCC
+        minimum-idle: 1
+        maximum-pool-size: 30
+        auto-commit: true
+        idle-timeout: 60000
+        max-lifetime: 1800000
+        connection-test-query: SELECT 1
+        connection-timeout: 60000
+      ds-master-20321001:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.4.1.171:3306/yibot_20321001?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: bot_data
+        password: Gpi1DY63rlPInmCC
+        minimum-idle: 1
+        maximum-pool-size: 30
+        auto-commit: true
+        idle-timeout: 60000
+        max-lifetime: 1800000
+        connection-test-query: SELECT 1
+        connection-timeout: 60000
+      ds-slave-0-20321001:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.4.1.35:3306/yibot_20321001?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: bot_data
+        password: Gpi1DY63rlPInmCC
+        minimum-idle: 1
+        maximum-pool-size: 30
+        auto-commit: true
+        idle-timeout: 60000
+        max-lifetime: 1800000
+        connection-test-query: SELECT 1
+        connection-timeout: 60000
+      ds-master-20341002:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.4.1.171:3306/yibot_20341002?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: bot_data
+        password: Gpi1DY63rlPInmCC
+        minimum-idle: 1
+        maximum-pool-size: 30
+        auto-commit: true
+        idle-timeout: 60000
+        max-lifetime: 1800000
+        connection-test-query: SELECT 1
+        connection-timeout: 60000
+      ds-slave-0-20341002:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.4.1.35:3306/yibot_20341002?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: bot_data
+        password: Gpi1DY63rlPInmCC
+        minimum-idle: 1
+        maximum-pool-size: 30
+        auto-commit: true
+        idle-timeout: 60000
+        max-lifetime: 1800000
+        connection-test-query: SELECT 1
+        connection-timeout: 60000
+      ds-master-20391001:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.4.1.171:3306/yibot_20391001?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: bot_data
+        password: Gpi1DY63rlPInmCC
+        minimum-idle: 1
+        maximum-pool-size: 30
+        auto-commit: true
+        idle-timeout: 60000
+        max-lifetime: 1800000
+        connection-test-query: SELECT 1
+        connection-timeout: 60000
+      ds-slave-0-20391001:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.4.1.35:3306/yibot_20391001?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: bot_data
+        password: Gpi1DY63rlPInmCC
+        minimum-idle: 1
+        maximum-pool-size: 30
+        auto-commit: true
+        idle-timeout: 60000
+        max-lifetime: 1800000
+        connection-test-query: SELECT 1
+        connection-timeout: 60000
+      ds-master-20621001:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.4.1.171:3306/yibot_20621001?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: bot_data
+        password: Gpi1DY63rlPInmCC
+        minimum-idle: 1
+        maximum-pool-size: 30
+        auto-commit: true
+        idle-timeout: 60000
+        max-lifetime: 1800000
+        connection-test-query: SELECT 1
+        connection-timeout: 60000
+      ds-slave-0-20621001:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.4.1.35:3306/yibot_20621001?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: bot_data
+        password: Gpi1DY63rlPInmCC
+        minimum-idle: 1
+        maximum-pool-size: 30
+        auto-commit: true
+        idle-timeout: 60000
+        max-lifetime: 1800000
+        connection-test-query: SELECT 1
+        connection-timeout: 60000
+      ds-master-20641001:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.4.1.171:3306/yibot_20641001?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: bot_data
+        password: Gpi1DY63rlPInmCC
+        minimum-idle: 1
+        maximum-pool-size: 30
+        auto-commit: true
+        idle-timeout: 60000
+        max-lifetime: 1800000
+        connection-test-query: SELECT 1
+        connection-timeout: 60000
+      ds-slave-0-20641001:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.4.1.35:3306/yibot_20641001?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: bot_data
+        password: Gpi1DY63rlPInmCC
+        minimum-idle: 1
+        maximum-pool-size: 30
+        auto-commit: true
+        idle-timeout: 60000
+        max-lifetime: 1800000
+        connection-test-query: SELECT 1
+        connection-timeout: 60000
+      ds-master-20651001:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.4.1.171:3306/yibot_20651001?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: bot_data
+        password: Gpi1DY63rlPInmCC
+        minimum-idle: 1
+        maximum-pool-size: 30
+        auto-commit: true
+        idle-timeout: 60000
+        max-lifetime: 1800000
+        connection-test-query: SELECT 1
+        connection-timeout: 60000
+      ds-slave-0-20651001:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.4.1.35:3306/yibot_20651001?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: bot_data
+        password: Gpi1DY63rlPInmCC
+        minimum-idle: 1
+        maximum-pool-size: 30
+        auto-commit: true
+        idle-timeout: 60000
+        max-lifetime: 1800000
+        connection-test-query: SELECT 1
+        connection-timeout: 60000
+      ds-master-20661001:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.4.1.171:3306/yibot_20661001?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: bot_data
+        password: Gpi1DY63rlPInmCC
+        minimum-idle: 1
+        maximum-pool-size: 30
+        auto-commit: true
+        idle-timeout: 60000
+        max-lifetime: 1800000
+        connection-test-query: SELECT 1
+        connection-timeout: 60000
+      ds-slave-0-20661001:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.4.1.35:3306/yibot_20661001?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: bot_data
+        password: Gpi1DY63rlPInmCC
+        minimum-idle: 1
+        maximum-pool-size: 30
+        auto-commit: true
+        idle-timeout: 60000
+        max-lifetime: 1800000
+        connection-test-query: SELECT 1
+        connection-timeout: 60000
+      ds-master-20721002:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.4.1.171:3306/yibot_20721002?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: bot_data
+        password: Gpi1DY63rlPInmCC
+        minimum-idle: 1
+        maximum-pool-size: 30
+        auto-commit: true
+        idle-timeout: 60000
+        max-lifetime: 1800000
+        connection-test-query: SELECT 1
+        connection-timeout: 60000
+      ds-slave-0-20721002:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.4.1.35:3306/yibot_20721002?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: bot_data
+        password: Gpi1DY63rlPInmCC
+        minimum-idle: 1
+        maximum-pool-size: 30
+        auto-commit: true
+        idle-timeout: 60000
+        max-lifetime: 1800000
+        connection-test-query: SELECT 1
+        connection-timeout: 60000
+      ds-master-20771001:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.4.1.171:3306/yibot_20771001?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: bot_data
+        password: Gpi1DY63rlPInmCC
+        minimum-idle: 1
+        maximum-pool-size: 30
+        auto-commit: true
+        idle-timeout: 60000
+        max-lifetime: 1800000
+        connection-test-query: SELECT 1
+        connection-timeout: 60000
+      ds-slave-0-20771001:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.4.1.35:3306/yibot_20771001?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: bot_data
+        password: Gpi1DY63rlPInmCC
+        minimum-idle: 1
+        maximum-pool-size: 30
+        auto-commit: true
+        idle-timeout: 60000
+        max-lifetime: 1800000
+        connection-test-query: SELECT 1
+        connection-timeout: 60000
+      ds-master-20771002:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.4.1.171:3306/yibot_20771002?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: bot_data
+        password: Gpi1DY63rlPInmCC
+        minimum-idle: 1
+        maximum-pool-size: 30
+        auto-commit: true
+        idle-timeout: 60000
+        max-lifetime: 1800000
+        connection-test-query: SELECT 1
+        connection-timeout: 60000
+      ds-slave-0-20771002:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.4.1.35:3306/yibot_20771002?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: bot_data
+        password: Gpi1DY63rlPInmCC
+        minimum-idle: 1
+        maximum-pool-size: 30
+        auto-commit: true
+        idle-timeout: 60000
+        max-lifetime: 1800000
+        connection-test-query: SELECT 1
+        connection-timeout: 60000
+      ds-master-20791001:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.4.1.171:3306/yibot_20791001?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: bot_data
+        password: Gpi1DY63rlPInmCC
+        minimum-idle: 1
+        maximum-pool-size: 30
+        auto-commit: true
+        idle-timeout: 60000
+        max-lifetime: 1800000
+        connection-test-query: SELECT 1
+        connection-timeout: 60000
+      ds-slave-0-20791001:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.4.1.35:3306/yibot_20791001?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: bot_data
+        password: Gpi1DY63rlPInmCC
+        minimum-idle: 1
+        maximum-pool-size: 30
+        auto-commit: true
+        idle-timeout: 60000
+        max-lifetime: 1800000
+        connection-test-query: SELECT 1
+        connection-timeout: 60000
+      ds-master-20871002:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.4.1.171:3306/yibot_20871002?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: bot_data
+        password: Gpi1DY63rlPInmCC
+        minimum-idle: 1
+        maximum-pool-size: 30
+        auto-commit: true
+        idle-timeout: 60000
+        max-lifetime: 1800000
+        connection-test-query: SELECT 1
+        connection-timeout: 60000
+      ds-slave-0-20871002:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.4.1.35:3306/yibot_20871002?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: bot_data
+        password: Gpi1DY63rlPInmCC
+        minimum-idle: 1
+        maximum-pool-size: 30
+        auto-commit: true
+        idle-timeout: 60000
+        max-lifetime: 1800000
+        connection-test-query: SELECT 1
+        connection-timeout: 60000
+      ds-master-20941002:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.4.1.171:3306/yibot_20941002?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: bot_data
+        password: Gpi1DY63rlPInmCC
+        minimum-idle: 1
+        maximum-pool-size: 30
+        auto-commit: true
+        idle-timeout: 60000
+        max-lifetime: 1800000
+        connection-test-query: SELECT 1
+        connection-timeout: 60000
+      ds-slave-0-20941002:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.4.1.35:3306/yibot_20941002?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: bot_data
+        password: Gpi1DY63rlPInmCC
+        minimum-idle: 1
+        maximum-pool-size: 30
+        auto-commit: true
+        idle-timeout: 60000
+        max-lifetime: 1800000
+        connection-test-query: SELECT 1
+        connection-timeout: 60000
+      ds-master-21021001:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.4.1.171:3306/yibot_21021001?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: bot_data
+        password: Gpi1DY63rlPInmCC
+        minimum-idle: 1
+        maximum-pool-size: 30
+        auto-commit: true
+        idle-timeout: 60000
+        max-lifetime: 1800000
+        connection-test-query: SELECT 1
+        connection-timeout: 60000
+      ds-slave-0-21021001:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.4.1.35:3306/yibot_21021001?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: bot_data
+        password: Gpi1DY63rlPInmCC
+        minimum-idle: 1
+        maximum-pool-size: 30
+        auto-commit: true
+        idle-timeout: 60000
+        max-lifetime: 1800000
+        connection-test-query: SELECT 1
+        connection-timeout: 60000
+      ds-master-21141001:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.4.1.171:3306/yibot_21141001?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: bot_data
+        password: Gpi1DY63rlPInmCC
+        minimum-idle: 1
+        maximum-pool-size: 30
+        auto-commit: true
+        idle-timeout: 60000
+        max-lifetime: 1800000
+        connection-test-query: SELECT 1
+        connection-timeout: 60000
+      ds-slave-0-21141001:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.4.1.35:3306/yibot_21141001?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: bot_data
+        password: Gpi1DY63rlPInmCC
+        minimum-idle: 1
+        maximum-pool-size: 30
+        auto-commit: true
+        idle-timeout: 60000
+        max-lifetime: 1800000
+        connection-test-query: SELECT 1
+        connection-timeout: 60000
+      ds-master-21241001:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.4.1.171:3306/yibot_21241001?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: bot_data
+        password: Gpi1DY63rlPInmCC
+        minimum-idle: 1
+        maximum-pool-size: 30
+        auto-commit: true
+        idle-timeout: 60000
+        max-lifetime: 1800000
+        connection-test-query: SELECT 1
+        connection-timeout: 60000
+      ds-slave-0-21241001:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.4.1.35:3306/yibot_21241001?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: bot_data
+        password: Gpi1DY63rlPInmCC
+        minimum-idle: 1
+        maximum-pool-size: 30
+        auto-commit: true
+        idle-timeout: 60000
+        max-lifetime: 1800000
+        connection-test-query: SELECT 1
+        connection-timeout: 60000
+      ds-master-21361001:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.4.1.171:3306/yibot_21361001?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: bot_data
+        password: Gpi1DY63rlPInmCC
+        minimum-idle: 1
+        maximum-pool-size: 30
+        auto-commit: true
+        idle-timeout: 60000
+        max-lifetime: 1800000
+        connection-test-query: SELECT 1
+        connection-timeout: 60000
+      ds-slave-0-21361001:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.4.1.35:3306/yibot_21361001?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: bot_data
+        password: Gpi1DY63rlPInmCC
+        minimum-idle: 1
+        maximum-pool-size: 30
+        auto-commit: true
+        idle-timeout: 60000
+        max-lifetime: 1800000
+        connection-test-query: SELECT 1
+        connection-timeout: 60000
+      ds-master-21381001:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.4.1.171:3306/yibot_21381001?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: bot_data
+        password: Gpi1DY63rlPInmCC
+        minimum-idle: 1
+        maximum-pool-size: 30
+        auto-commit: true
+        idle-timeout: 60000
+        max-lifetime: 1800000
+        connection-test-query: SELECT 1
+        connection-timeout: 60000
+      ds-slave-0-21381001:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.4.1.35:3306/yibot_21381001?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: bot_data
+        password: Gpi1DY63rlPInmCC
+        minimum-idle: 1
+        maximum-pool-size: 30
+        auto-commit: true
+        idle-timeout: 60000
+        max-lifetime: 1800000
+        connection-test-query: SELECT 1
+        connection-timeout: 60000
+      ds-master-21421007:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.4.1.171:3306/yibot_21421007?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: bot_data
+        password: Gpi1DY63rlPInmCC
+        minimum-idle: 1
+        maximum-pool-size: 30
+        auto-commit: true
+        idle-timeout: 60000
+        max-lifetime: 1800000
+        connection-test-query: SELECT 1
+        connection-timeout: 60000
+      ds-slave-0-21421007:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.4.1.35:3306/yibot_21421007?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: bot_data
+        password: Gpi1DY63rlPInmCC
+        minimum-idle: 1
+        maximum-pool-size: 30
+        auto-commit: true
+        idle-timeout: 60000
+        max-lifetime: 1800000
+        connection-test-query: SELECT 1
+        connection-timeout: 60000
+      ds-master-21451001:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.4.1.171:3306/yibot_21451001?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: bot_data
+        password: Gpi1DY63rlPInmCC
+        minimum-idle: 1
+        maximum-pool-size: 30
+        auto-commit: true
+        idle-timeout: 60000
+        max-lifetime: 1800000
+        connection-test-query: SELECT 1
+        connection-timeout: 60000
+      ds-slave-0-21451001:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.4.1.35:3306/yibot_21451001?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: bot_data
+        password: Gpi1DY63rlPInmCC
+        minimum-idle: 1
+        maximum-pool-size: 30
+        auto-commit: true
+        idle-timeout: 60000
+        max-lifetime: 1800000
+        connection-test-query: SELECT 1
+        connection-timeout: 60000
+      ds-master-21581001:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.4.1.171:3306/yibot_21581001?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: bot_data
+        password: Gpi1DY63rlPInmCC
+        minimum-idle: 1
+        maximum-pool-size: 30
+        auto-commit: true
+        idle-timeout: 60000
+        max-lifetime: 1800000
+        connection-test-query: SELECT 1
+        connection-timeout: 60000
+      ds-slave-0-21581001:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.4.1.35:3306/yibot_21581001?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: bot_data
+        password: Gpi1DY63rlPInmCC
+        minimum-idle: 1
+        maximum-pool-size: 30
+        auto-commit: true
+        idle-timeout: 60000
+        max-lifetime: 1800000
+        connection-test-query: SELECT 1
+        connection-timeout: 60000
+      ds-master-21841002:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.4.1.171:3306/yibot_21841002?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: bot_data
+        password: Gpi1DY63rlPInmCC
+        minimum-idle: 1
+        maximum-pool-size: 30
+        auto-commit: true
+        idle-timeout: 60000
+        max-lifetime: 1800000
+        connection-test-query: SELECT 1
+        connection-timeout: 60000
+      ds-slave-0-21841002:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.4.1.35:3306/yibot_21841002?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: bot_data
+        password: Gpi1DY63rlPInmCC
+        minimum-idle: 1
+        maximum-pool-size: 30
+        auto-commit: true
+        idle-timeout: 60000
+        max-lifetime: 1800000
+        connection-test-query: SELECT 1
+        connection-timeout: 60000
+    config:
+      sharding:
+        #默认分库策略
+        #未配置分片规则的表将通过默认数据源定位
+        default-data-source-name: ds-default
+        default-database-strategy:
+          inline:
+            sharding-column: appid
+            algorithm-expression: ds-${appid}
+        #绑定表列表
+        binding-tables[0]: t_dialog,t_dialog_detail
+        #分库分表配置，可配置多个logic_table_name
+        tables:
+          t_session:
+            actual-data-nodes: ds-${[10051004,10051005,10051006,10051007,10051008,10051009,10051010,10051011,10051012,10051023,10051024,10051025,10051026,10051027,10051028,10151001,10161001,10171001,10251001,10451001,10471001,10501001,10501002,10621005,20021001,20051001,20081001,20091001,20111002,20121003,20131001,20151002,20231001,20251001,20281001,20321001,20341002,20391001,20621001,20641001,20651001,20661001,20721002,20771001,20771002,20791001,20871002,20941002,21021001,21141001,21241001,21361001,21381001,21421007,21451001,21581001,21841002]}.t_session_${[201807,201808,201809]}
+            database-strategy:
+              inline:
+                sharding-column: appid
+                algorithm-expression: ds-${appid}
+            table-strategy:
+              inline:
+                sharding-column: date_month
+                algorithm-expression: t_session_${date_month}
+          t_dialog:
+            actual-data-nodes: ds-${[10051004,10051005,10051006,10051007,10051008,10051009,10051010,10051011,10051012,10051023,10051024,10051025,10051026,10051027,10051028,10151001,10161001,10171001,10251001,10451001,10471001,10501001,10501002,10621005,20021001,20051001,20081001,20091001,20111002,20121003,20131001,20151002,20231001,20251001,20281001,20321001,20341002,20391001,20621001,20641001,20651001,20661001,20721002,20771001,20771002,20791001,20871002,20941002,21021001,21141001,21241001,21361001,21381001,21421007,21451001,21581001,21841002]}.t_dialog_${[201807,201808,201809]}
+            database-strategy:
+              inline:
+                sharding-column: appid
+                algorithm-expression: ds-${appid}
+            table-strategy:
+              inline:
+                sharding-column: date_month
+                algorithm-expression: t_dialog_${date_month}
+          t_dialog_detail:
+            actual-data-nodes: ds-${[10051004,10051005,10051006,10051007,10051008,10051009,10051010,10051011,10051012,10051023,10051024,10051025,10051026,10051027,10051028,10151001,10161001,10171001,10251001,10451001,10471001,10501001,10501002,10621005,20021001,20051001,20081001,20091001,20111002,20121003,20131001,20151002,20231001,20251001,20281001,20321001,20341002,20391001,20621001,20641001,20651001,20661001,20721002,20771001,20771002,20791001,20871002,20941002,21021001,21141001,21241001,21361001,21381001,21421007,21451001,21581001,21841002]}.t_dialog_detail_${[201807,201808,201809]}
+            database-strategy:
+              inline:
+                sharding-column: appid
+                algorithm-expression: ds-${appid}
+            table-strategy:
+              inline:
+                sharding-column: date_month
+                algorithm-expression: t_dialog_detail_${date_month}
+          t_dialog_answer:
+            actual-data-nodes: ds-${[10051004,10051005,10051006,10051007,10051008,10051009,10051010,10051011,10051012,10051023,10051024,10051025,10051026,10051027,10051028,10151001,10161001,10171001,10251001,10451001,10471001,10501001,10501002,10621005,20021001,20051001,20081001,20091001,20111002,20121003,20131001,20151002,20231001,20251001,20281001,20321001,20341002,20391001,20621001,20641001,20651001,20661001,20721002,20771001,20771002,20791001,20871002,20941002,21021001,21141001,21241001,21361001,21381001,21421007,21451001,21581001,21841002]}.t_dialog_answer
+            database-strategy:
+               inline:
+                 sharding-column: appid
+                 algorithm-expression: ds-${appid}
+          t_city_overview:
+            actual-data-nodes: ds-${[10051004,10051005,10051006,10051007,10051008,10051009,10051010,10051011,10051012,10051023,10051024,10051025,10051026,10051027,10051028,10151001,10161001,10171001,10251001,10451001,10471001,10501001,10501002,10621005,20021001,20051001,20081001,20091001,20111002,20121003,20131001,20151002,20231001,20251001,20281001,20321001,20341002,20391001,20621001,20641001,20651001,20661001,20721002,20771001,20771002,20791001,20871002,20941002,21021001,21141001,21241001,21361001,21381001,21421007,21451001,21581001,21841002]}.t_city_overview
+            database-strategy:
+              inline:
+                sharding-column: appid
+                algorithm-expression: ds-${appid}
+          t_judge_overview:
+            actual-data-nodes: ds-${[10051004,10051005,10051006,10051007,10051008,10051009,10051010,10051011,10051012,10051023,10051024,10051025,10051026,10051027,10051028,10151001,10161001,10171001,10251001,10451001,10471001,10501001,10501002,10621005,20021001,20051001,20081001,20091001,20111002,20121003,20131001,20151002,20231001,20251001,20281001,20321001,20341002,20391001,20621001,20641001,20651001,20661001,20721002,20771001,20771002,20791001,20871002,20941002,21021001,21141001,21241001,21361001,21381001,21421007,21451001,21581001,21841002]}.t_judge_overview
+            database-strategy:
+              inline:
+                sharding-column: appid
+                algorithm-expression: ds-${appid}
+          t_touch_overview:
+            actual-data-nodes: ds-${[10051004,10051005,10051006,10051007,10051008,10051009,10051010,10051011,10051012,10051023,10051024,10051025,10051026,10051027,10051028,10151001,10161001,10171001,10251001,10451001,10471001,10501001,10501002,10621005,20021001,20051001,20081001,20091001,20111002,20121003,20131001,20151002,20231001,20251001,20281001,20321001,20341002,20391001,20621001,20641001,20651001,20661001,20721002,20771001,20771002,20791001,20871002,20941002,21021001,21141001,21241001,21361001,21381001,21421007,21451001,21581001,21841002]}.t_touch_overview
+            database-strategy:
+              inline:
+                sharding-column: appid
+                algorithm-expression: ds-${appid}
+          t_province_overview:
+            actual-data-nodes: ds-${[10051004,10051005,10051006,10051007,10051008,10051009,10051010,10051011,10051012,10051023,10051024,10051025,10051026,10051027,10051028,10151001,10161001,10171001,10251001,10451001,10471001,10501001,10501002,10621005,20021001,20051001,20081001,20091001,20111002,20121003,20131001,20151002,20231001,20251001,20281001,20321001,20341002,20391001,20621001,20641001,20651001,20661001,20721002,20771001,20771002,20791001,20871002,20941002,21021001,21141001,21241001,21361001,21381001,21421007,21451001,21581001,21841002]}.t_province_overview
+            database-strategy:
+              inline:
+                sharding-column: appid
+                algorithm-expression: ds-${appid}
+          t_part_trend_overview:
+            actual-data-nodes: ds-${[10051004,10051005,10051006,10051007,10051008,10051009,10051010,10051011,10051012,10051023,10051024,10051025,10051026,10051027,10051028,10151001,10161001,10171001,10251001,10451001,10471001,10501001,10501002,10621005,20021001,20051001,20081001,20091001,20111002,20121003,20131001,20151002,20231001,20251001,20281001,20321001,20341002,20391001,20621001,20641001,20651001,20661001,20721002,20771001,20771002,20791001,20871002,20941002,21021001,21141001,21241001,21361001,21381001,21421007,21451001,21581001,21841002]}.t_part_trend_overview
+            database-strategy:
+              inline:
+                sharding-column: appid
+                algorithm-expression: ds-${appid}
+          t_whole_trend_overview:
+            actual-data-nodes: ds-${[10051004,10051005,10051006,10051007,10051008,10051009,10051010,10051011,10051012,10051023,10051024,10051025,10051026,10051027,10051028,10151001,10161001,10171001,10251001,10451001,10471001,10501001,10501002,10621005,20021001,20051001,20081001,20091001,20111002,20121003,20131001,20151002,20231001,20251001,20281001,20321001,20341002,20391001,20621001,20641001,20651001,20661001,20721002,20771001,20771002,20791001,20871002,20941002,21021001,21141001,21241001,21361001,21381001,21421007,21451001,21581001,21841002]}.t_whole_trend_overview
+            database-strategy:
+              inline:
+                sharding-column: appid
+                algorithm-expression: ds-${appid}
+          t_whole_service_overview:
+            actual-data-nodes: ds-${[10051004,10051005,10051006,10051007,10051008,10051009,10051010,10051011,10051012,10051023,10051024,10051025,10051026,10051027,10051028,10151001,10161001,10171001,10251001,10451001,10471001,10501001,10501002,10621005,20021001,20051001,20081001,20091001,20111002,20121003,20131001,20151002,20231001,20251001,20281001,20321001,20341002,20391001,20621001,20641001,20651001,20661001,20721002,20771001,20771002,20791001,20871002,20941002,21021001,21141001,21241001,21361001,21381001,21421007,21451001,21581001,21841002]}.t_whole_service_overview
+            database-strategy:
+              inline:
+                sharding-column: appid
+                algorithm-expression: ds-${appid}
+          t_faq_touch_overview:
+            actual-data-nodes: ds-${[10051004,10051005,10051006,10051007,10051008,10051009,10051010,10051011,10051012,10051023,10051024,10051025,10051026,10051027,10051028,10151001,10161001,10171001,10251001,10451001,10471001,10501001,10501002,10621005,20021001,20051001,20081001,20091001,20111002,20121003,20131001,20151002,20231001,20251001,20281001,20321001,20341002,20391001,20621001,20641001,20651001,20661001,20721002,20771001,20771002,20791001,20871002,20941002,21021001,21141001,21241001,21361001,21381001,21421007,21451001,21581001,21841002]}.t_faq_touch_overview
+            database-strategy:
+              inline:
+                sharding-column: appid
+                algorithm-expression: ds-${appid}
+          t_zrg_overview:
+            actual-data-nodes: ds-${[10051004,10051005,10051006,10051007,10051008,10051009,10051010,10051011,10051012,10051023,10051024,10051025,10051026,10051027,10051028,10151001,10161001,10171001,10251001,10451001,10471001,10501001,10501002,10621005,20021001,20051001,20081001,20091001,20111002,20121003,20131001,20151002,20231001,20251001,20281001,20321001,20341002,20391001,20621001,20641001,20651001,20661001,20721002,20771001,20771002,20791001,20871002,20941002,21021001,21141001,21241001,21361001,21381001,21421007,21451001,21581001,21841002]}.t_zrg_overview
+            database-strategy:
+              inline:
+                sharding-column: appid
+                algorithm-expression: ds-${appid}
+          t_hot_faq_overview:
+            actual-data-nodes: ds-${[10051004,10051005,10051006,10051007,10051008,10051009,10051010,10051011,10051012,10051023,10051024,10051025,10051026,10051027,10051028,10151001,10161001,10171001,10251001,10451001,10471001,10501001,10501002,10621005,20021001,20051001,20081001,20091001,20111002,20121003,20131001,20151002,20231001,20251001,20281001,20321001,20341002,20391001,20621001,20641001,20651001,20661001,20721002,20771001,20771002,20791001,20871002,20941002,21021001,21141001,21241001,21361001,21381001,21421007,21451001,21581001,21841002]}.t_hot_faq_overview
+            database-strategy:
+              inline:
+                sharding-column: appid
+                algorithm-expression: ds-${appid}
+          t_hot_area_overview:
+            actual-data-nodes: ds-${[10051004,10051005,10051006,10051007,10051008,10051009,10051010,10051011,10051012,10051023,10051024,10051025,10051026,10051027,10051028,10151001,10161001,10171001,10251001,10451001,10471001,10501001,10501002,10621005,20021001,20051001,20081001,20091001,20111002,20121003,20131001,20151002,20231001,20251001,20281001,20321001,20341002,20391001,20621001,20641001,20651001,20661001,20721002,20771001,20771002,20791001,20871002,20941002,21021001,21141001,21241001,21361001,21381001,21421007,21451001,21581001,21841002]}.t_hot_area_overview
+            database-strategy:
+              inline:
+                sharding-column: appid
+                algorithm-expression: ds-${appid}
+          t_hot_area_fq_overview:
+            actual-data-nodes: ds-${[10051004,10051005,10051006,10051007,10051008,10051009,10051010,10051011,10051012,10051023,10051024,10051025,10051026,10051027,10051028,10151001,10161001,10171001,10251001,10451001,10471001,10501001,10501002,10621005,20021001,20051001,20081001,20091001,20111002,20121003,20131001,20151002,20231001,20251001,20281001,20321001,20341002,20391001,20621001,20641001,20651001,20661001,20721002,20771001,20771002,20791001,20871002,20941002,21021001,21141001,21241001,21361001,21381001,21421007,21451001,21581001,21841002]}.t_hot_area_fq_overview
+            database-strategy:
+              inline:
+                sharding-column: appid
+                algorithm-expression: ds-${appid}
+          t_dialog_back:
+            actual-data-nodes: ds-${[10051004,10051005,10051006,10051007,10051008,10051009,10051010,10051011,10051012,10051023,10051024,10051025,10051026,10051027,10051028,10151001,10161001,10171001,10251001,10451001,10471001,10501001,10501002,10621005,20021001,20051001,20081001,20091001,20111002,20121003,20131001,20151002,20231001,20251001,20281001,20321001,20341002,20391001,20621001,20641001,20651001,20661001,20721002,20771001,20771002,20791001,20871002,20941002,21021001,21141001,21241001,21361001,21381001,21421007,21451001,21581001,21841002]}.t_dialog_back
+            database-strategy:
+              inline:
+                sharding-column: appid
+                algorithm-expression: ds-${appid}
+          t_feedback_back:
+            actual-data-nodes: ds-${[10051004,10051005,10051006,10051007,10051008,10051009,10051010,10051011,10051012,10051023,10051024,10051025,10051026,10051027,10051028,10151001,10161001,10171001,10251001,10451001,10471001,10501001,10501002,10621005,20021001,20051001,20081001,20091001,20111002,20121003,20131001,20151002,20231001,20251001,20281001,20321001,20341002,20391001,20621001,20641001,20651001,20661001,20721002,20771001,20771002,20791001,20871002,20941002,21021001,21141001,21241001,21361001,21381001,21421007,21451001,21581001,21841002]}.t_feedback_back
+            database-strategy:
+              inline:
+                sharding-column: appid
+                algorithm-expression: ds-${appid}
+        master-slave-rules:
+          ds-default:
+            master-data-source-name: ds-master-default
+            slave-data-source-names: ds-slave-0-default
+          ds-10051004:
+            master-data-source-name: ds-master-10051004
+            slave-data-source-names: ds-slave-0-10051004
+          ds-10051005:
+            master-data-source-name: ds-master-10051005
+            slave-data-source-names: ds-slave-0-10051005
+          ds-10051006:
+            master-data-source-name: ds-master-10051006
+            slave-data-source-names: ds-slave-0-10051006
+          ds-10051007:
+            master-data-source-name: ds-master-10051007
+            slave-data-source-names: ds-slave-0-10051007
+          ds-10051008:
+            master-data-source-name: ds-master-10051008
+            slave-data-source-names: ds-slave-0-10051008
+          ds-10051009:
+            master-data-source-name: ds-master-10051009
+            slave-data-source-names: ds-slave-0-10051009
+          ds-10051010:
+            master-data-source-name: ds-master-10051010
+            slave-data-source-names: ds-slave-0-10051010
+          ds-10051011:
+            master-data-source-name: ds-master-10051011
+            slave-data-source-names: ds-slave-0-10051011
+          ds-10051012:
+            master-data-source-name: ds-master-10051012
+            slave-data-source-names: ds-slave-0-10051012
+          ds-10051023:
+            master-data-source-name: ds-master-10051023
+            slave-data-source-names: ds-slave-0-10051023
+          ds-10051024:
+            master-data-source-name: ds-master-10051024
+            slave-data-source-names: ds-slave-0-10051024
+          ds-10051025:
+            master-data-source-name: ds-master-10051025
+            slave-data-source-names: ds-slave-0-10051025
+          ds-10051026:
+            master-data-source-name: ds-master-10051026
+            slave-data-source-names: ds-slave-0-10051026
+          ds-10051027:
+            master-data-source-name: ds-master-10051027
+            slave-data-source-names: ds-slave-0-10051027
+          ds-10051028:
+            master-data-source-name: ds-master-10051028
+            slave-data-source-names: ds-slave-0-10051028
+          ds-10151001:
+            master-data-source-name: ds-master-10151001
+            slave-data-source-names: ds-slave-0-10151001
+          ds-10161001:
+            master-data-source-name: ds-master-10161001
+            slave-data-source-names: ds-slave-0-10161001
+          ds-10171001:
+            master-data-source-name: ds-master-10171001
+            slave-data-source-names: ds-slave-0-10171001
+          ds-10251001:
+            master-data-source-name: ds-master-10251001
+            slave-data-source-names: ds-slave-0-10251001
+          ds-10451001:
+            master-data-source-name: ds-master-10451001
+            slave-data-source-names: ds-slave-0-10451001
+          ds-10471001:
+            master-data-source-name: ds-master-10471001
+            slave-data-source-names: ds-slave-0-10471001
+          ds-10501001:
+            master-data-source-name: ds-master-10501001
+            slave-data-source-names: ds-slave-0-10501001
+          ds-10501002:
+            master-data-source-name: ds-master-10501002
+            slave-data-source-names: ds-slave-0-10501002
+          ds-10621005:
+            master-data-source-name: ds-master-10621005
+            slave-data-source-names: ds-slave-0-10621005
+          ds-20021001:
+            master-data-source-name: ds-master-20021001
+            slave-data-source-names: ds-slave-0-20021001
+          ds-20051001:
+            master-data-source-name: ds-master-20051001
+            slave-data-source-names: ds-slave-0-20051001
+          ds-20081001:
+            master-data-source-name: ds-master-20081001
+            slave-data-source-names: ds-slave-0-20081001
+          ds-20091001:
+            master-data-source-name: ds-master-20091001
+            slave-data-source-names: ds-slave-0-20091001
+          ds-20111002:
+            master-data-source-name: ds-master-20111002
+            slave-data-source-names: ds-slave-0-20111002
+          ds-20121003:
+            master-data-source-name: ds-master-20121003
+            slave-data-source-names: ds-slave-0-20121003
+          ds-20131001:
+            master-data-source-name: ds-master-20131001
+            slave-data-source-names: ds-slave-0-20131001
+          ds-20151002:
+            master-data-source-name: ds-master-20151002
+            slave-data-source-names: ds-slave-0-20151002
+          ds-20231001:
+            master-data-source-name: ds-master-20231001
+            slave-data-source-names: ds-slave-0-20231001
+          ds-20251001:
+            master-data-source-name: ds-master-20251001
+            slave-data-source-names: ds-slave-0-20251001
+          ds-20281001:
+            master-data-source-name: ds-master-20281001
+            slave-data-source-names: ds-slave-0-20281001
+          ds-20321001:
+            master-data-source-name: ds-master-20321001
+            slave-data-source-names: ds-slave-0-20321001
+          ds-20341002:
+            master-data-source-name: ds-master-20341002
+            slave-data-source-names: ds-slave-0-20341002
+          ds-20391001:
+            master-data-source-name: ds-master-20391001
+            slave-data-source-names: ds-slave-0-20391001
+          ds-20621001:
+            master-data-source-name: ds-master-20621001
+            slave-data-source-names: ds-slave-0-20621001
+          ds-20641001:
+            master-data-source-name: ds-master-20641001
+            slave-data-source-names: ds-slave-0-20641001
+          ds-20651001:
+            master-data-source-name: ds-master-20651001
+            slave-data-source-names: ds-slave-0-20651001
+          ds-20661001:
+            master-data-source-name: ds-master-20661001
+            slave-data-source-names: ds-slave-0-20661001
+          ds-20721002:
+            master-data-source-name: ds-master-20721002
+            slave-data-source-names: ds-slave-0-20721002
+          ds-20771001:
+            master-data-source-name: ds-master-20771001
+            slave-data-source-names: ds-slave-0-20771001
+          ds-20771002:
+            master-data-source-name: ds-master-20771002
+            slave-data-source-names: ds-slave-0-20771002
+          ds-20791001:
+            master-data-source-name: ds-master-20791001
+            slave-data-source-names: ds-slave-0-20791001
+          ds-20871002:
+            master-data-source-name: ds-master-20871002
+            slave-data-source-names: ds-slave-0-20871002
+          ds-20941002:
+            master-data-source-name: ds-master-20941002
+            slave-data-source-names: ds-slave-0-20941002
+          ds-21021001:
+            master-data-source-name: ds-master-21021001
+            slave-data-source-names: ds-slave-0-21021001
+          ds-21141001:
+            master-data-source-name: ds-master-21141001
+            slave-data-source-names: ds-slave-0-21141001
+          ds-21241001:
+            master-data-source-name: ds-master-21241001
+            slave-data-source-names: ds-slave-0-21241001
+          ds-21361001:
+            master-data-source-name: ds-master-21361001
+            slave-data-source-names: ds-slave-0-21361001
+          ds-21381001:
+            master-data-source-name: ds-master-21381001
+            slave-data-source-names: ds-slave-0-21381001
+          ds-21421007:
+            master-data-source-name: ds-master-21421007
+            slave-data-source-names: ds-slave-0-21421007
+          ds-21451001:
+            master-data-source-name: ds-master-21451001
+            slave-data-source-names: ds-slave-0-21451001
+          ds-21581001:
+            master-data-source-name: ds-master-21581001
+            slave-data-source-names: ds-slave-0-21581001
+          ds-21841002:
+            master-data-source-name: ds-master-21841002
+            slave-data-source-names: ds-slave-0-21841002
+        props:
+          sql:
+            show: false
+#      orchestration:
+#        name: yibot_ds_sharding
+#        overwrite: true
+#        zookeeper:
+#          namespace: yibot_ds_sharding
+#          server-lists: 127.0.0.1:2181
+
+#自定义属性
+yibot:
+  oldServiceUrl: http://10.3.1.3:5000/

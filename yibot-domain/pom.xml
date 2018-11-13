@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>yibot</artifactId>
+        <groupId>com.zhuiyi</groupId>
+        <version>1.0.1</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>yibot-domain</artifactId>
+    <packaging>jar</packaging>
+
+    <properties>
+        <hibernate-validator.version>0.9.0</hibernate-validator.version>
+        <validation-api.version>0.9.0</validation-api.version>
+        <jackson-annotations.version>0.9.0</jackson-annotations.version>
+    </properties>
+
+    <dependencies>
+        <!--公共功能模块 -->
+        <dependency>
+            <groupId>com.zhuiyi</groupId>
+            <artifactId>yibot-com</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <!-- java声明 对象模型数据校验 -->
+        <dependency>
+            <groupId>javax.validation</groupId>
+            <artifactId>validation-api</artifactId>
+            <version>2.0.1.Final</version>
+        </dependency>
+        <!-- hibernate 对象模型数据校验 -->
+        <dependency>
+            <groupId>org.hibernate.validator</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>6.0.10.Final</version>
+        </dependency>
+        <!-- jackson 对象模型数据校验 -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
+            <version>2.9.0</version>
+        </dependency>
+        <!--springboot jpa 数据访问 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.apache.tomcat</groupId>
+                    <artifactId>tomcat-jdbc</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <!--redis依赖添加-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.jooq</groupId>
+            <artifactId>jooq</artifactId>
+            <version>${jooq.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jooq</groupId>
+            <artifactId>jooq-meta</artifactId>
+            <version>${jooq.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jooq</groupId>
+            <artifactId>jooq-codegen</artifactId>
+            <version>${jooq.version}</version>
+        </dependency>
+    </dependencies>
+
+    <!--解决spring boot多模块项目，maven打包，依赖包找不到对象的问题-->
+    <build>
+        <finalName>${project.artifactId}</finalName>
+        <plugins>
+            <!--<plugin>-->
+                <!--<groupId>org.jooq</groupId>-->
+                <!--<artifactId>jooq-codegen-maven</artifactId>-->
+                <!--<version>${jooq.version}</version>-->
+                <!--<executions>-->
+                    <!--<execution>-->
+                        <!--<id>jooq-codegen</id>-->
+                        <!--<phase>generate-sources</phase>-->
+                        <!--<goals>-->
+                            <!--<goal>generate</goal>-->
+                        <!--</goals>-->
+                        <!--<configuration>-->
+                        <!--</configuration>-->
+                    <!--</execution>-->
+                <!--</executions>-->
+                <!--<dependencies>-->
+                    <!--<dependency>-->
+                        <!--<groupId>mysql</groupId>-->
+                        <!--<artifactId>mysql-connector-java</artifactId>-->
+                        <!--<version>${mysql.version}</version>-->
+                    <!--</dependency>-->
+                <!--</dependencies>-->
+                <!--<configuration>-->
+                    <!--<jdbc>-->
+                        <!--<driver>com.mysql.jdbc.Driver</driver>-->
+                        <!--<url>jdbc:mysql://192.168.0.160:3306/yibot</url>-->
+                        <!--<user>root</user>-->
+                        <!--<password>123.com</password>-->
+                    <!--</jdbc>-->
+                    <!--<generator>-->
+                        <!--<database>-->
+                            <!--<name>org.jooq.meta.mysql.MySQLDatabase</name>-->
+                            <!--<includes>.*</includes>-->
+                            <!--<excludes />-->
+                            <!--<forcedTypes>-->
+                                <!--<forcedType>-->
+                                    <!--<name>BOOLEAN</name>-->
+                                    <!--<types>(?i:TINYINT(\s*\(\d+\))?(\s*UNSIGNED)?)</types>-->
+                                <!--</forcedType>-->
+                            <!--</forcedTypes>-->
+                        <!--</database>-->
+                        <!--<generate>-->
+                            <!--<deprecated>false</deprecated>-->
+                        <!--</generate>-->
+                        <!--<target>-->
+                            <!--<packageName>com.zhuiyi.model.jooq</packageName>-->
+                            <!--<directory>target/generated-sources/java</directory>-->
+                        <!--</target>-->
+                        <!--<generate>-->
+                            <!--<pojos>false</pojos>-->
+                            <!--<daos>false</daos>-->
+                        <!--</generate>-->
+                    <!--</generator>-->
+                <!--</configuration>-->
+            <!--</plugin>-->
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <classifier>exec</classifier>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

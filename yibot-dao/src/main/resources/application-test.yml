@@ -1,0 +1,199 @@
+#数据源配置
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: none
+      naming:
+        physical-strategy:  org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    show-sql: true
+    generate-ddl: false
+    database: mysql
+    open-in-view: false
+
+#分库分表配置
+sharding:
+  jdbc:
+    datasource:
+      names: ds-m0,ds-m1,ds-m0-s0,ds-m1-s0,ds-default
+      ds-m0:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://192.168.1.167:13306/yibot_11?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: root
+        password: 123.com
+      ds-m0-s0:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://192.168.1.167:13306/yibot_12?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: root
+        password: 123.com
+      ds-m1:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://192.168.1.167:13306/yibot_21?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: root
+        password: 123.com
+      ds-m1-s0:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://192.168.1.167:13306/yibot_22?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: root
+        password: 123.com
+      ds-default:
+      #系统默认独立数据源
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://192.168.1.167:13306/yibot?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: root
+        password: 123.com
+    config:
+      sharding:
+        #默认分库策略
+        #未配置分片规则的表将通过默认数据源定位
+        default-data-source-name: ds-default
+        default-database-strategy:
+          inline:
+            sharding-column: appid
+            algorithm-expression: ds_${appid}
+        #绑定表列表
+        binding-tables[0]: t_dialog,t_dialog_detail
+        binding-tables[1]: t_dialog,t_dialog_answer
+        #分库分表配置，可配置多个logic_table_name
+        tables:
+          t_session:
+            actual-data-nodes: ds_${[11,21]}.t_session_${[201807,201808,201809]}
+            database-strategy:
+              inline:
+                sharding-column: appid
+                algorithm-expression: ds_${appid}
+            table-strategy:
+              inline:
+                sharding-column: date_month
+                algorithm-expression: t_session_${date_month}
+          t_dialog:
+            actual-data-nodes: ds_${[11,21]}.t_dialog_${[201807,201808,201809]}
+            database-strategy:
+              inline:
+                sharding-column: appid
+                algorithm-expression: ds_${appid}
+            table-strategy:
+              inline:
+                sharding-column: date_month
+                algorithm-expression: t_dialog_${date_month}
+          t_dialog_detail:
+            actual-data-nodes: ds_${[11,21]}.t_dialog_detail_${[201807,201808,201809]}
+            database-strategy:
+              inline:
+                sharding-column: appid
+                algorithm-expression: ds_${appid}
+            table-strategy:
+              inline:
+                sharding-column: date_month
+                algorithm-expression: t_dialog_detail_${date_month}
+          t_city_overview:
+            actual-data-nodes: ds_${[11,21]}.t_city_overview
+            database-strategy:
+              inline:
+                sharding-column: appid
+                algorithm-expression: ds_${appid}
+            key-generator-column-name: id
+          t_judge_overview:
+            actual-data-nodes: ds_${[11,21]}.t_judge_overview
+            database-strategy:
+              inline:
+                sharding-column: appid
+                algorithm-expression: ds_${appid}
+            key-generator-column-name: id
+          t_touch_overview:
+            actual-data-nodes: ds_${[11,21]}.t_touch_overview
+            database-strategy:
+              inline:
+                sharding-column: appid
+                algorithm-expression: ds_${appid}
+            key-generator-column-name: id
+          t_province_overview:
+            actual-data-nodes: ds_${[11,21]}.t_province_overview
+            database-strategy:
+              inline:
+                sharding-column: appid
+                algorithm-expression: ds_${appid}
+            key-generator-column-name: id
+          t_part_trend_overview:
+            actual-data-nodes: ds_${[11,21]}.t_part_trend_overview
+            database-strategy:
+              inline:
+                sharding-column: appid
+                algorithm-expression: ds_${appid}
+            key-generator-column-name: id
+          t_whole_trend_overview:
+            actual-data-nodes: ds_${[11,21]}.t_whole_trend_overview
+            database-strategy:
+              inline:
+                sharding-column: appid
+                algorithm-expression: ds_${appid}
+            key-generator-column-name: id
+          t_faq_touch_overview:
+            actual-data-nodes: ds_${[11,21]}.t_faq_touch_overview
+            database-strategy:
+              inline:
+                sharding-column: appid
+                algorithm-expression: ds_${appid}
+            key-generator-column-name: id
+          t_zrg_overview:
+            actual-data-nodes: ds_${[11,21]}.t_zrg_overview
+            database-strategy:
+              inline:
+                sharding-column: appid
+                algorithm-expression: ds_${appid}
+            key-generator-column-name: id
+          t_hot_faq_overview:
+            actual-data-nodes: ds_${[11,21]}.t_hot_faq_overview
+            database-strategy:
+              inline:
+                sharding-column: appid
+                algorithm-expression: ds_${appid}
+            key-generator-column-name: id
+          t_hot_area_overview:
+            actual-data-nodes: ds_${[11,21]}.t_hot_area_overview
+            database-strategy:
+              inline:
+                sharding-column: appid
+                algorithm-expression: ds_${appid}
+            key-generator-column-name: id
+          t_hot_area_fq_overview:
+            actual-data-nodes: ds_${[11,21]}.t_hot_area_fq_overview
+            database-strategy:
+              inline:
+                sharding-column: appid
+                algorithm-expression: ds_${appid}
+            key-generator-column-name: id
+          t_dialog_back:
+            actual-data-nodes: ds_${[11,21]}.t_dialog_back
+            database-strategy:
+              inline:
+                sharding-column: appid
+                algorithm-expression: ds_${appid}
+            key-generator-column-name: id
+          t_feedback_back:
+            actual-data-nodes: ds_${[11,21]}.t_feedback_back
+            database-strategy:
+              inline:
+                sharding-column: appid
+                algorithm-expression: ds_${appid}
+            key-generator-column-name: id
+        master-slave-rules:
+          ds_11:
+            master-data-source-name: ds-m0
+            slave-data-source-names: ds-m0-s0
+          ds_21:
+            master-data-source-name: ds-m1
+            slave-data-source-names: ds-m1-s0
+        props:
+          sql:
+            show: fasle
+#      orchestration:
+#        name: yibot_ds_sharding
+#        overwrite: true
+#        zookeeper:
+#          namespace: yibot_ds_sharding
+#          server-lists: 127.0.0.1:2181

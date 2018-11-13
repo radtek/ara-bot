@@ -1,0 +1,342 @@
+      ds-10051004:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.8.1.5:3366/yibot_10051004?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: root
+        password: qwertyuiop123
+      ds-10051005:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.8.1.5:3366/yibot_10051005?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: root
+        password: qwertyuiop123
+      ds-10051006:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.8.1.5:3366/yibot_10051006?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: root
+        password: qwertyuiop123
+      ds-10051007:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.8.1.5:3366/yibot_10051007?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: root
+        password: qwertyuiop123
+      ds-10051008:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.8.1.5:3366/yibot_10051008?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: root
+        password: qwertyuiop123
+      ds-10051009:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.8.1.5:3366/yibot_10051009?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: root
+        password: qwertyuiop123
+      ds-10051010:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.8.1.5:3366/yibot_10051010?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: root
+        password: qwertyuiop123
+      ds-10051011:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.8.1.5:3366/yibot_10051011?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: root
+        password: qwertyuiop123
+      ds-10051012:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.8.1.5:3366/yibot_10051012?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: root
+        password: qwertyuiop123
+      ds-10051023:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.8.1.5:3366/yibot_10051023?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: root
+        password: qwertyuiop123
+      ds-10051024:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.8.1.5:3366/yibot_10051024?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: root
+        password: qwertyuiop123
+      ds-10051025:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.8.1.5:3366/yibot_10051025?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: root
+        password: qwertyuiop123
+      ds-10051026:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.8.1.5:3366/yibot_10051026?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: root
+        password: qwertyuiop123
+      ds-10051027:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.8.1.5:3366/yibot_10051027?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: root
+        password: qwertyuiop123
+      ds-10051028:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.8.1.5:3366/yibot_10051028?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: root
+        password: qwertyuiop123
+      ds-10151001:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.8.1.5:3366/yibot_10151001?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: root
+        password: qwertyuiop123
+      ds-10161001:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.8.1.5:3366/yibot_10161001?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: root
+        password: qwertyuiop123
+      ds-10171001:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.8.1.5:3366/yibot_10171001?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: root
+        password: qwertyuiop123
+      ds-10251001:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.8.1.5:3366/yibot_10251001?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: root
+        password: qwertyuiop123
+      ds-10451001:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.8.1.5:3366/yibot_10451001?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: root
+        password: qwertyuiop123
+      ds-10471001:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.8.1.5:3366/yibot_10471001?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: root
+        password: qwertyuiop123
+      ds-10501001:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.8.1.5:3366/yibot_10501001?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: root
+        password: qwertyuiop123
+      ds-10501002:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.8.1.5:3366/yibot_10501002?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: root
+        password: qwertyuiop123
+      ds-10621005:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.8.1.5:3366/yibot_10621005?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: root
+        password: qwertyuiop123
+      ds-20021001:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.8.1.5:3366/yibot_20021001?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: root
+        password: qwertyuiop123
+      ds-20051001:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.8.1.5:3366/yibot_20051001?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: root
+        password: qwertyuiop123
+      ds-20081001:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.8.1.5:3366/yibot_20081001?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: root
+        password: qwertyuiop123
+      ds-20091001:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.8.1.5:3366/yibot_20091001?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: root
+        password: qwertyuiop123
+      ds-20111002:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.8.1.5:3366/yibot_20111002?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: root
+        password: qwertyuiop123
+      ds-20121003:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.8.1.5:3366/yibot_20121003?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: root
+        password: qwertyuiop123
+      ds-20131001:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.8.1.5:3366/yibot_20131001?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: root
+        password: qwertyuiop123
+      ds-20151002:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.8.1.5:3366/yibot_20151002?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: root
+        password: qwertyuiop123
+      ds-20231001:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.8.1.5:3366/yibot_20231001?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: root
+        password: qwertyuiop123
+      ds-20251001:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.8.1.5:3366/yibot_20251001?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: root
+        password: qwertyuiop123
+      ds-20281001:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.8.1.5:3366/yibot_20281001?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: root
+        password: qwertyuiop123
+      ds-20321001:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.8.1.5:3366/yibot_20321001?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: root
+        password: qwertyuiop123
+      ds-20341002:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.8.1.5:3366/yibot_20341002?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: root
+        password: qwertyuiop123
+      ds-20391001:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.8.1.5:3366/yibot_20391001?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: root
+        password: qwertyuiop123
+      ds-20621001:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.8.1.5:3366/yibot_20621001?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: root
+        password: qwertyuiop123
+      ds-20641001:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.8.1.5:3366/yibot_20641001?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: root
+        password: qwertyuiop123
+      ds-20651001:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.8.1.5:3366/yibot_20651001?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: root
+        password: qwertyuiop123
+      ds-20661001:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.8.1.5:3366/yibot_20661001?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: root
+        password: qwertyuiop123
+      ds-20721002:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.8.1.5:3366/yibot_20721002?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: root
+        password: qwertyuiop123
+      ds-20771001:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.8.1.5:3366/yibot_20771001?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: root
+        password: qwertyuiop123
+      ds-20771002:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.8.1.5:3366/yibot_20771002?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: root
+        password: qwertyuiop123
+      ds-20791001:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.8.1.5:3366/yibot_20791001?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: root
+        password: qwertyuiop123
+      ds-20871002:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.8.1.5:3366/yibot_20871002?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: root
+        password: qwertyuiop123
+      ds-20941002:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.8.1.5:3366/yibot_20941002?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: root
+        password: qwertyuiop123
+      ds-21021001:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.8.1.5:3366/yibot_21021001?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: root
+        password: qwertyuiop123
+      ds-21141001:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.8.1.5:3366/yibot_21141001?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: root
+        password: qwertyuiop123
+      ds-21241001:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.8.1.5:3366/yibot_21241001?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: root
+        password: qwertyuiop123
+      ds-21361001:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.8.1.5:3366/yibot_21361001?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: root
+        password: qwertyuiop123
+      ds-21381001:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.8.1.5:3366/yibot_21381001?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: root
+        password: qwertyuiop123
+      ds-21421007:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.8.1.5:3366/yibot_21421007?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: root
+        password: qwertyuiop123
+      ds-21451001:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.8.1.5:3366/yibot_21451001?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: root
+        password: qwertyuiop123
+      ds-21581001:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.8.1.5:3366/yibot_21581001?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: root
+        password: qwertyuiop123
+      ds-21841002:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://10.8.1.5:3366/yibot_21841002?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+        username: root
+        password: qwertyuiop123

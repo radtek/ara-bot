@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.zhuiyi</groupId>
+    <artifactId>yibot</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0.1</version>
+
+    <name>yibot</name>
+    <description>pom for yibot</description>
+
+    <modules>
+        <module>yibot-domain</module>
+        <module>yibot-dao</module>
+        <module>yibot-service</module>
+        <module>yibot-api</module>
+        <module>yibot-manage</module>
+        <module>yibot-com</module>
+    </modules>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.0.3.RELEASE</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
+        <fastjson.version>1.2.47</fastjson.version>
+        <swagger.version>2.7.0</swagger.version>
+        <jwt.version>0.9.0</jwt.version>
+        <kafka.version>2.1.7.RELEASE</kafka.version>
+        <sentry.version>8.0.3</sentry.version>
+        <mysqlc.version>5.1.46</mysqlc.version>
+        <sharding.jdbc.version>2.0.3</sharding.jdbc.version>
+        <sharding-sphere.version>3.0.0.M1</sharding-sphere.version>
+        <contiperf.version>2.3.4</contiperf.version>
+        <quartz.version>2.3.0</quartz.version>
+        <jackson-databind.version>2.9.6</jackson-databind.version>
+        <querydsl.version>4.1.4</querydsl.version>
+        <jooq.version>3.11.3</jooq.version>
+    </properties>
+
+    <dependencies>
+        <!--spring boot 单元测试组件 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <!--lombok JAVA代码优化组件 -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <!-- alibaba 开源的Json处理插件 -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>${fastjson.version}</version>
+        </dependency>
+        <!-- Sentry 日志统一管理的插件 -->
+        <dependency>
+            <groupId>com.getsentry.raven</groupId>
+            <artifactId>raven-logback</artifactId>
+            <version>${sentry.version}</version>
+        </dependency>
+        <!-- mysql 数据库连接驱动-->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>${mysqlc.version}</version>
+        </dependency>
+         <!--关系数据库分库分表插件-->
+        <dependency>
+            <groupId>io.shardingsphere</groupId>
+            <artifactId>sharding-jdbc-spring-boot-starter</artifactId>
+            <version>${sharding-sphere.version}</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <finalName>${project.artifactId}</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <!-- 没有该配置，devtools 不生效 -->
+                    <fork>true</fork>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

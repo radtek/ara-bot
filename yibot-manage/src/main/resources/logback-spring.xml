@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <!-- 彩色日志 -->
+    <!-- 彩色日志依赖的渲染类 -->
+    <conversionRule conversionWord="clr" converterClass="org.springframework.boot.logging.logback.ColorConverter"/>
+    <conversionRule conversionWord="wex" converterClass="org.springframework.boot.logging.logback.WhitespaceThrowableProxyConverter"/>
+    <conversionRule conversionWord="wEx" converterClass="org.springframework.boot.logging.logback.ExtendedWhitespaceThrowableProxyConverter"/>
+
+    <!-- 彩色日志格式 -->
+    <property name="PATTERN" value="${CONSOLE_LOG_PATTERN:-%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} %clr(${LOG_LEVEL_PATTERN:-%5p}) %clr(${PID:- }){magenta} %clr(--){faint} %clr([%15.15t]){faint} %clr(%-40.40logger{39}){cyan} %clr(:){faint} %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}}"/>/>
+
+    <property name="LOG_FILE_NAME" value="yibot-manage" />
+
+    <!-- test文件路径 -->
+    <property name="DEFAULT_FILE_PATH" value="/data/log" />
+    <!-- test文件路径 -->
+    <property name="TEST_FILE_PATH" value="/data/log" />
+    <!-- pro文件路径 -->
+    <property name="PRO_FILE_PATH" value="/data/log" />
+
+    <property name="DEFAULT_LOG_LEVEL" value="INFO" />
+    <property name="TEST_LOG_LEVEL" value="INFO" />
+    <property name="PRO_LOG_LEVEL" value="WARN" />
+    <property name="MAX_LOG_LEVEL" value="ERROR" />
+    <property name="SENTRY_LOG_LEVEL" value="WARN" />
+
+    <!-- 本地开发环境 -->
+    <springProfile name="ldev">
+        <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+            <encoder>
+                <pattern>${PATTERN}</pattern>
+            </encoder>
+        </appender>
+        <logger name="io.undertow" level="${MAX_LOG_LEVEL}" />
+        <!--<root level="${DEFAULT_LOG_LEVEL}">-->
+        <root level="${DEFAULT_LOG_LEVEL}">
+            <appender-ref ref="CONSOLE" />
+        </root>
+    </springProfile>
+
+    <!-- 开发环境 -->
+    <springProfile name="dev">
+        <!-- 每天产生一个文件 -->
+        <appender name="DEV-FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+            <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+                <!-- 文件名称 -->
+                <fileNamePattern>${DEFAULT_FILE_PATH}/${LOG_FILE_NAME}.%d{yyyy-MM-dd}.log</fileNamePattern>
+                <!-- 文件最大保存历史数量 -->
+                <MaxHistory>100</MaxHistory>
+            </rollingPolicy>
+            <layout class="ch.qos.logback.classic.PatternLayout">
+                <pattern>${PATTERN}</pattern>
+            </layout>
+        </appender>
+        <logger name="io.undertow" level="${MAX_LOG_LEVEL}" />
+        <logger name="com.zaxxer.hikari.pool" level="${MAX_LOG_LEVEL}" />
+        <root level="${DEFAULT_LOG_LEVEL}">
+            <appender-ref ref="DEV-FILE" />
+        </root>
+    </springProfile>
+
+
+    <!-- 测试环境 -->
+    <springProfile name="test">
+        <!-- 每天产生一个文件 -->
+        <appender name="TEST-FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+            <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+                <!-- 文件名称 -->
+                <fileNamePattern>${TEST_FILE_PATH}/${LOG_FILE_NAME}.%d{yyyy-MM-dd}.log</fileNamePattern>
+                <!-- 文件最大保存历史数量 -->
+                <MaxHistory>100</MaxHistory>
+            </rollingPolicy>
+            <layout class="ch.qos.logback.classic.PatternLayout">
+                <pattern>${PATTERN}</pattern>
+            </layout>
+        </appender>
+        <logger name="io.undertow" level="${MAX_LOG_LEVEL}" />
+        <root level="${TEST_LOG_LEVEL}">
+            <appender-ref ref="TEST-FILE" />
+        </root>
+    </springProfile>
+
+    <!-- 生产环境 -->
+    <springProfile name="pro">
+        <appender name="PROD_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+            <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+                <fileNamePattern>${PRO_FILE_PATH}/${LOG_FILE_NAME}.%d{yyyy-MM-dd}.log</fileNamePattern>
+                <MaxHistory>100</MaxHistory>
+            </rollingPolicy>
+            <layout class="ch.qos.logback.classic.PatternLayout">
+                <pattern>${PATTERN}</pattern>
+            </layout>
+        </appender>
+        <appender name="SENTRY" class="com.getsentry.raven.logback.SentryAppender">
+            <dsn>https://4e0596d2d2624a029a997bdbf9d22f04:0c4b9f0f2d2245a18e1a31e5f8bf7ece@sentry-log.wezhuiyi.com/21</dsn>
+            <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+                <level>${SENTRY_LOG_LEVEL}</level>
+            </filter>
+        </appender>
+        <logger name="io.undertow" level="${MAX_LOG_LEVEL}" />
+        <logger name="com.zaxxer.hikari.pool" level="${MAX_LOG_LEVEL}" />
+        <root level="${PRO_LOG_LEVEL}">
+            <appender-ref ref="PROD_FILE" />
+            <appender-ref ref="SENTRY" />
+        </root>
+    </springProfile>
+</configuration>
